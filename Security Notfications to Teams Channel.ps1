@@ -1,10 +1,3 @@
-#############################################
-Install-Module AzureAD
-
-Install-Module MicrosoftGraphSecurity
-
-####################################################
-
 function Get-AuthToken {
 
 <#
@@ -246,13 +239,13 @@ $global:authToken = Get-AuthToken -User $User
  
 
 #Teams webhook url
-$uri = "<ENTER WEBHOOK URL"
+$uri = "<ENTER WEBHOOK URL>"
 #Image on the left hand side, here I have a regular user picture
 $ItemImage = 'https://img.icons8.com/color/1600/circled-user-male-skin-type-1-2.png'
 $SecurityGraph = New-Object 'System.Collections.Generic.List[System.Object]'
 $ArrayTable = New-Object 'System.Collections.Generic.List[System.Object]'
 
-Get-TopAlerts |Select-Object title, description, severity, eventdatetime, category, userstates | ForEach-Object{
+Get-TopAlerts |Select-Object title, description, severity, eventdatetime, category, userstates, azureTenantId | ForEach-Object{
 $obj = [PSCustomObject]@{
 'title' = $_.title 
 'Description' = $_.description
@@ -260,6 +253,7 @@ $obj = [PSCustomObject]@{
 'eventDateTime' = $_.eventDateTime
 'category' = $_.category
 'userstates' = $_.userstates.accountname
+'azureTenantId' = $_.azureTenantId
 
 }
 $SecurityGraph.Add($obj)
@@ -271,6 +265,10 @@ $Section = @{
 activityTitle = "$($_.Title)"
 activityImage = $ItemImage
 facts		  = @(
+@{
+name  = 'TenantID:'
+value = $_.azureTenantId
+},
 @{
 name  = 'Title:'
 value = $_.title
