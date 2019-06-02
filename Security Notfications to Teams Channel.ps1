@@ -1,4 +1,7 @@
-﻿#>
+#############################################
+Install-Module AzureAD
+
+Install-Module MicrosoftGraphSecurity
 
 ####################################################
 
