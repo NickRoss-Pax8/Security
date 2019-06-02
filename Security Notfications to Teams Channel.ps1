@@ -69,7 +69,7 @@ param
 
     [System.Reflection.Assembly]::LoadFrom($adalforms) | Out-Null
 
-    $clientId = "e0d61854-77b1-48d5-872c-2595ef70b3db"
+    $clientId = "<ENTETR APPLICATION ID"
 
     $redirectUri = "urn:ietf:wg:oauth:2.0:oob"
 
@@ -243,7 +243,7 @@ $global:authToken = Get-AuthToken -User $User
  
 
 #Teams webhook url
-$uri = "https://outlook.office.com/webhook/e411f2b2-2639-48cf-a7b9-eda9e2c8c7d6@b61cf565-d3dc-4af4-b758-6b78b7ff0a27/IncomingWebhook/599167a4b4fb49f3b73b14805b95cd05/12b71bb8-5761-4c6b-83d3-63bdef9a8474"
+$uri = "<ENTER WEBHOOK URL"
 #Image on the left hand side, here I have a regular user picture
 $ItemImage = 'https://img.icons8.com/color/1600/circled-user-male-skin-type-1-2.png'
 $SecurityGraph = New-Object 'System.Collections.Generic.List[System.Object]'
