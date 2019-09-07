@@ -1,4 +1,6 @@
-﻿##Variables for Processing
+Install-Module -Name Microsoft.Online.SharePoint.PowerShell
+
+##Variables for Processing
 $SiteUrl = Read-Host -Prompt "Enter the site url you want to enable versioning on."
 $UserName= Read-Host -Prompt "Enter your username."
 $Password =Read-Host -Prompt "Enter your password."
