@@ -4,7 +4,7 @@ $customers = Get-MsolPartnerContract
 $role = Get-MsolRole | Where-Object {$_.name -contains "Company Administrator"}
 foreach($customer in $customers){
      
-    $users = Get-MsolUser -TenantId $customer.tenantid
+    $users = Get-MsolUser -All -TenantId $customer.tenantid
     $admins = Get-MsolRoleMember -TenantId $customer.tenantid -RoleObjectId $role.objectid
  
     foreach($admin in $admins){
