@@ -1,4 +1,3 @@
-﻿  
 Function Connect-EXOnline {
     $credentials = Get-Credential
     Write-Output "Getting the Exchange Online cmdlets"
